@@ -208,6 +208,21 @@ html, body {
 
 .start-btn i { margin-right: 10px; }
 
+.landing-credit {
+    margin-top: 28px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 18px;
+    color: var(--red);
+    opacity: 0.7;
+    letter-spacing: 1px;
+    animation: fadeInCredit 2s ease forwards;
+}
+
+@keyframes fadeInCredit {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 0.7; transform: translateY(0); }
+}
+
 /* ============================================================
    MAIN PAGE
    ============================================================ */
