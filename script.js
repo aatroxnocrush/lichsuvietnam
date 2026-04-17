@@ -107,28 +107,27 @@ function initParticleCanvas() {
     class Particle {
         constructor(randomY) {
             this.x = Math.random() * canvas.width;
-            this.y = randomY ? Math.random() * canvas.height : canvas.height + 20;
-            this.size = Math.random() * 3 + 1;
-            this.speedY = -(Math.random() * 0.6 + 0.2);
-            this.speedX = Math.random() * 0.4 - 0.2;
-            this.opacity = Math.random() * 0.15 + 0.05;
+            this.y = randomY ? Math.random() * canvas.height : -20;
+            this.size = Math.random() * 2.5 + 0.5;
+            this.speedY = Math.random() * 0.4 + 0.1; // Falling down 
+            this.speedX = Math.random() * 0.3 - 0.15;
+            this.opacity = Math.random() * 0.4 + 0.1;
             this.wobble = Math.random() * 2;
             this.wobbleSpeed = Math.random() * 0.02 + 0.005;
             const colors = [
-                'rgba(211, 47, 47, ',
-                'rgba(239, 83, 80, ',
-                'rgba(249, 168, 37, ',
-                'rgba(255, 179, 0, ',
-                'rgba(183, 28, 28, ',
+                'rgba(255, 215, 0, ',   // Gold
+                'rgba(255, 235, 59, ',  // Yellow
+                'rgba(255, 193, 7, ',   // Amber
+                'rgba(255, 255, 255, '  // White sparks
             ];
             this.colorBase = colors[Math.floor(Math.random() * colors.length)];
         }
         update() {
             this.y += this.speedY;
-            this.x += this.speedX + Math.sin(this.wobble) * 0.3;
+            this.x += this.speedX + Math.sin(this.wobble) * 0.5;
             this.wobble += this.wobbleSpeed;
-            if (this.y < -20) {
-                this.y = canvas.height + 20;
+            if (this.y > canvas.height + 20) {
+                this.y = -20;
                 this.x = Math.random() * canvas.width;
             }
         }
@@ -145,7 +144,7 @@ function initParticleCanvas() {
         }
     }
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 120; i++) {
         particles.push(new Particle(true));
     }
 
@@ -222,12 +221,13 @@ function toggleBgMusic() {
     if (musicPlaying) {
         bgMusic.pause();
         musicPlaying = false;
+        updateMusicBtn();
     } else {
         bgMusic.play().then(() => {
             musicPlaying = true;
+            updateMusicBtn();
         }).catch(() => {});
     }
-    updateMusicBtn();
 }
 
 function updateMusicBtn() {
