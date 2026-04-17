@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇻🇳 Ngày Sách và Văn Hóa Đọc Việt Nam 2026 — Đất Nước</title>
+    <meta name="description"
+        content="Website thi Ngày hội đọc sách — Ngày Sách và Văn Hóa Đọc Việt Nam 2026. Chủ đề: Đất Nước.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ======================== LANDING / SPLASH PAGE ======================== -->
+    <div id="landing-page">
+        <canvas id="starCanvas"></canvas>
+        <div class="landing-particles" id="landingParticles"></div>
+        <div class="landing-container">
+            <div class="landing-icon">📖</div>
+            <h1 class="landing-title">Ngày Sách và Văn Hóa Đọc Việt Nam 2026</h1>
+            <p class="landing-subtitle">✦ Chủ đề: Đất Nước ✦</p>
+            <div class="landing-divider">📖 📚 📖</div>
+            <button class="start-btn" id="startBtn" onclick="startExperience()">
+                <i class="fas fa-play"></i> Bắt đầu trải nghiệm
+            </button>
+        </div>
+    </div>
+
+    <!-- ======================== MAIN PAGE ======================== -->
+    <div id="main-page">
+        <!-- Particle Canvas -->
+        <canvas id="particleCanvas"></canvas>
+
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-content">
+                <div class="header-icon">📖</div>
+                <div class="header-text">
+                    <h1>Ngày Sách và Văn Hóa Đọc Việt Nam 2026</h1>
+                    <p>Chủ đề: Đất Nước</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Buttons -->
+        <nav class="main-nav" id="mainNav">
+            <button class="nav-btn" data-section="timeline" onclick="openSection('timeline')">
+                <i class="fas fa-clock-rotate-left"></i>
+                <span>Dòng Chảy Lịch Sử</span>
+            </button>
+            <button class="nav-btn" data-section="news" onclick="openSection('news')">
+                <i class="fas fa-newspaper"></i>
+                <span>Bản Tin 30/4</span>
+            </button>
+            <button class="nav-btn" data-section="letter" onclick="openSection('letter')">
+                <i class="fas fa-envelope-open-text"></i>
+                <span>Bức Thư Gửi Bạn</span>
+            </button>
+        </nav>
+
+        <!-- Content Area -->
+        <div class="content-area" id="contentArea">
+
+            <!-- ========== TIMELINE SECTION ========== -->
+            <div class="section-content" id="section-timeline">
+                <div class="section-header-inner">
+                    <h2><span class="title-icon">📜</span> Dòng Chảy Lịch Sử Việt Nam</h2>
+                    <p>Hành trình dựng nước và giữ nước qua hàng nghìn năm lịch sử</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="left">
+                        <div class="timeline-icon">🏛️</div>
+                        <div class="timeline-card">
+                            <div class="timeline-period">2879 TCN – 179 TCN</div>
+                            <h3>Thời kỳ Hồng Bàng</h3>
+                            <p>Sự hình thành nhà nước Văn Lang của các vua Hùng và Âu Lạc của An Dương Vương, đặt nền
+                                móng cho văn minh lúa nước và tinh thần đoàn kết dân tộc.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="right">
+                        <div class="timeline-icon">⚔️</div>
+                        <div class="timeline-card">
+                            <div class="timeline-period">938</div>
+                            <h3>Ngô Quyền xưng Vương – Trận Bạch Đằng</h3>
+                            <p>Chiến thắng lẫy lừng trên sông Bạch Đằng chấm dứt hơn 1000 năm Bắc thuộc, mở ra kỷ
+                                nguyên độc lập tự chủ lâu dài cho dân tộc Việt Nam.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="left">
+                        <div class="timeline-icon">📜</div>
+                        <div class="timeline-card">
+                            <div class="timeline-period">1010 – 1400</div>
+                            <h3>Kỷ nguyên Đại Việt</h3>
+                            <p>Các triều đại Lý, Trần xây dựng quốc gia Đại Việt hùng mạnh, khẳng định chủ quyền vững
+                                chắc và đánh bại nhiều cuộc xâm lược quy mô lớn từ phương Bắc.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="right">
+                        <div class="timeline-icon">🔥</div>
+                        <div class="timeline-card">
+                            <div class="timeline-period">1789</div>
+                            <h3>Phong trào Tây Sơn & Đại thắng quân Thanh</h3>
+                            <p>Anh hùng áo vải Nguyễn Huệ đánh bại 29 vạn quân xâm lược, chấm dứt tình trạng chia cắt
+                                đất nước và bước đầu thống nhất lãnh thổ.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="left">
+                        <div class="timeline-icon">⭐</div>
+                        <div class="timeline-card">
+                            <div class="timeline-period">1945</div>
+                            <h3>Cách mạng Tháng Tám – Tuyên ngôn Độc lập</h3>
+                            <p>Chủ tịch Hồ Chí Minh đọc bản Tuyên ngôn Độc lập khai sinh nước Việt Nam Dân chủ Cộng
+                                hòa, đưa dân tộc bước vào kỷ nguyên độc lập, tự do.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="right">
+                        <div class="timeline-icon">✌️</div>
+                        <div class="timeline-card">
+                            <div class="timeline-period">1975</div>
+                            <h3>Đại thắng mùa Xuân năm 1975</h3>
+                            <p>Chiến dịch Hồ Chí Minh lịch sử kết thúc hoàn toàn cuộc kháng chiến chống Mỹ, giải phóng
+                                miền Nam và thống nhất non sông về một mối vào ngày 30/04.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="left">
+                        <div class="timeline-icon">🚀</div>
+                        <div class="timeline-card">
+                            <div class="timeline-period">1986 – Nay</div>
+                            <h3>Thời kỳ Đổi mới & Kỷ nguyên vươn mình</h3>
+                            <p>Việt Nam thực hiện công cuộc Đổi mới toàn diện, hội nhập sâu rộng với thế giới và đang
+                                bước vào giai đoạn lịch sử mới: Kỷ nguyên phát triển của dân tộc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== NEWS SECTION (30/4) ========== -->
+            <div class="section-content" id="section-news">
+                <div class="section-header-inner">
+                    <h2><span class="title-icon">📻</span> Bản Tin Chiến Thắng Ngày 30/04/1975</h2>
+                    <p>Khoảnh khắc lịch sử chói lọi của dân tộc Việt Nam</p>
+                </div>
+
+                <div class="news-container">
+                    <div class="news-audio-box">
+                        <button class="audio-play-btn" id="newsAudioBtn" onclick="toggleNewsAudio()">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="audio-info">
+                            <span class="audio-title">🎙️ Bản tin chiến thắng — NSƯT Kim Cúc</span>
+                            <span class="audio-sub">Đài Tiếng nói Việt Nam, 30/04/1975</span>
+                        </div>
+                        <div class="audio-eq" id="newsEq">
+                            <span class="eq-bar"></span>
+                            <span class="eq-bar"></span>
+                            <span class="eq-bar"></span>
+                            <span class="eq-bar"></span>
+                            <span class="eq-bar"></span>
+                        </div>
+                    </div>
+
+                    <div class="news-card">
+                        <div class="news-stars">✨ ✨ ✨</div>
+                        <h3>Ngày 30/4/1975 — Mốc son chói lọi trong lịch sử Việt Nam!</h3>
+                        <div class="news-divider"></div>
+
+                        <p>Chỉ 15 phút sau khi xe tăng Quân đội Nhân dân Việt Nam húc đổ cánh cổng Dinh Độc Lập, Tổng
+                            thống Dương Văn Minh chính thức tuyên bố đầu hàng vô điều kiện. Ngay lúc <strong>11 giờ 30
+                                phút</strong>, Nghệ sĩ ưu tú <em>Kim Cúc</em> đã đọc bản tin chiến thắng trên sóng Đài
+                            Tiếng nói Việt Nam, thông báo về sự kiện lịch sử trọng đại này.</p>
+
+                        <p>Bản tin nêu rõ: <em>"Quân ta tiến vào Sài Gòn, đánh chiếm Dinh Độc Lập, cờ đỏ sao vàng tung
+                                bay trên nóc Dinh, đánh dấu thắng lợi vang dội của chiến dịch Hồ Chí Minh."</em> Thành
+                            công này không chỉ kết thúc cuộc chiến kéo dài mà còn ghi dấu một chiến công vẻ vang trong
+                            thế kỷ XX, thể hiện trí tuệ, lòng dũng cảm và sự toàn thắng của chủ nghĩa anh hùng cách
+                            mạng.</p>
+
+                        <p>Thắng lợi này mãi mãi được ghi vào lịch sử dân tộc như một biểu tượng sáng ngời của khát
+                            vọng hòa bình và thống nhất đất nước. Chiến thắng 30/4 không chỉ là cột mốc lịch sử cho
+                            Việt Nam mà còn là một dấu ấn sâu sắc trên bản đồ thế giới.</p>
+
+                        <div class="news-footer">
+                            <span>⭐</span>
+                            <p>Hãy cùng lắng nghe lại Bản tin chiến thắng ngày 30/4/1975 để cảm nhận sâu sắc hơn về
+                                khoảnh khắc lịch sử này! 📻</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== LETTER SECTION ========== -->
+            <div class="section-content" id="section-letter">
+                <div class="section-header-inner">
+                    <h2>💌 Bức Thư Gửi Bạn</h2>
+                    <p>Những lời nhắn gửi từ trái tim yêu quê hương</p>
+                </div>
+
+                <div class="letter-container" id="letterContainer">
+                    <!-- Initial state: button to get a message -->
+                    <div class="letter-prompt" id="letterPrompt">
+                        <div class="letter-envelope-icon">💌</div>
+                        <button class="letter-open-btn" id="letterOpenBtn" onclick="showRandomLetter()">
+                            <i class="fas fa-envelope-open"></i> Cho mình một lời nhắn…
+                        </button>
+                    </div>
+
+                    <!-- Letter display (hidden initially) -->
+                    <div class="letter-display" id="letterDisplay" style="display:none;">
+                        <div class="letter-card">
+                            <div class="letter-quote-mark">"</div>
+                            <div class="letter-text" id="letterText"></div>
+                            <div class="letter-quote-mark-end">"</div>
+                        </div>
+                        <button class="letter-next-btn" id="letterNextBtn" onclick="showRandomLetter()">
+                            <i class="fas fa-envelope"></i> Nhận một lá thư khác
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Button (shown when a section is open) -->
+        <button class="back-btn" id="backBtn" onclick="closeSection()" style="display:none;">
+            <i class="fas fa-arrow-left"></i> Quay lại
+        </button>
+    </div>
+
+    <!-- Music Button -->
+    <button class="music-btn" id="musicBtn" onclick="toggleBgMusic()" style="display:none;">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
