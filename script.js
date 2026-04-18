@@ -346,6 +346,14 @@ function openSection(sectionName) {
                 item.style.animation = `timelineFadeIn 0.6s ease forwards ${i * 0.1 + 0.1}s`;
             });
         }
+        // Re-trigger book card animations
+        if (sectionName === 'library') {
+            section.querySelectorAll('.book-card').forEach((card, i) => {
+                card.style.animation = 'none';
+                card.offsetHeight;
+                card.style.animation = `bookAppear 0.5s ease forwards ${i * 0.05 + 0.05}s`;
+            });
+        }
     }
 
     // Show back button
