@@ -362,6 +362,7 @@ html, body {
 #main-page.show .nav-btn:nth-child(1) { animation-delay: 0.2s; }
 #main-page.show .nav-btn:nth-child(2) { animation-delay: 0.35s; }
 #main-page.show .nav-btn:nth-child(3) { animation-delay: 0.5s; }
+#main-page.show .nav-btn:nth-child(4) { animation-delay: 0.65s; }
 
 @keyframes slideUpFade {
     to { opacity: 1; transform: translateY(0); }
@@ -904,6 +905,157 @@ html, body {
 .letter-next-btn i { margin-right: 8px; }
 
 /* ============================================================
+   LIBRARY SECTION (Kho sách H8)
+   ============================================================ */
+.library-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.book-card {
+    display: flex;
+    text-decoration: none;
+    position: relative;
+    height: 200px;
+    border-radius: 4px 16px 16px 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: bookAppear 0.5s ease forwards;
+}
+
+.book-card:nth-child(1)  { animation-delay: 0.05s; }
+.book-card:nth-child(2)  { animation-delay: 0.10s; }
+.book-card:nth-child(3)  { animation-delay: 0.15s; }
+.book-card:nth-child(4)  { animation-delay: 0.20s; }
+.book-card:nth-child(5)  { animation-delay: 0.25s; }
+.book-card:nth-child(6)  { animation-delay: 0.30s; }
+.book-card:nth-child(7)  { animation-delay: 0.35s; }
+.book-card:nth-child(8)  { animation-delay: 0.40s; }
+.book-card:nth-child(9)  { animation-delay: 0.45s; }
+.book-card:nth-child(10) { animation-delay: 0.50s; }
+.book-card:nth-child(11) { animation-delay: 0.55s; }
+.book-card:nth-child(12) { animation-delay: 0.60s; }
+.book-card:nth-child(13) { animation-delay: 0.65s; }
+.book-card:nth-child(14) { animation-delay: 0.70s; }
+.book-card:nth-child(15) { animation-delay: 0.75s; }
+
+@keyframes bookAppear {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.book-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 50px rgba(211, 47, 47, 0.18), 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.book-spine {
+    width: 14px;
+    min-width: 14px;
+    background: linear-gradient(180deg, var(--red-dark) 0%, #8e1515 50%, var(--red-dark) 100%);
+    position: relative;
+    z-index: 2;
+}
+
+.book-spine::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.2), rgba(0,0,0,0.1), rgba(255,255,255,0.15));
+}
+
+.book-cover {
+    flex: 1;
+    background: linear-gradient(160deg, #c62828 0%, var(--red-dark) 40%, #8e1515 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.book-cover::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 8px; right: 8px; bottom: 8px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.book-cover::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);
+    pointer-events: none;
+}
+
+.book-vol {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.book-title {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+
+.book-icon {
+    font-size: 28px;
+    margin-top: 12px;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+}
+
+.library-note {
+    text-align: center;
+    margin-top: 28px;
+    padding: 14px 20px;
+    background: rgba(211, 47, 47, 0.04);
+    border: 1px solid rgba(211, 47, 47, 0.1);
+    border-radius: 14px;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.library-note i {
+    color: var(--red);
+    margin-right: 8px;
+}
+
+/* ============================================================
    BACK BUTTON
    ============================================================ */
 .back-btn {
@@ -1036,6 +1188,11 @@ html, body {
     .letter-card { padding: 20px 16px; margin-bottom: 16px; }
     .letter-quote-mark, .letter-quote-mark-end { font-size: 32px; margin: 0; }
     .news-audio-box { flex-wrap: wrap; gap: 12px; padding: 16px 20px; }
+    .library-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 14px; }
+    .book-card { height: 175px; }
+    .book-title { font-size: 12px; }
+    .book-vol { font-size: 10px; }
+    .book-icon { font-size: 24px; }
     .back-btn { bottom: 20px; padding: 10px 24px; font-size: 13px; }
     .music-btn { bottom: 20px; right: 20px; width: 44px; height: 44px; }
 }
@@ -1044,4 +1201,6 @@ html, body {
     .landing-title { font-size: 24px; }
     .nav-btn { padding: 12px 16px; font-size: 13px; }
     .header-text h1 { font-size: 18px; }
+    .library-grid { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 10px; }
+    .book-card { height: 160px; }
 }
