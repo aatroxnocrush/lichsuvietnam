@@ -15,6 +15,8 @@ let bgMusic = null;
 let musicPlaying = false;
 let newsAudio = null;
 let newsPlaying = false;
+let timelineAudio = null;
+let timelinePlaying = false;
 let currentSection = null;
 let shownLetterIndices = [];
 let particleAnimRunning = false;
@@ -285,6 +287,19 @@ function toggleNewsAudio() {
         });
     }
 
+    // Stop timeline audio if it happens to be playing
+    if (timelinePlaying && timelineAudio) {
+        timelineAudio.pause();
+        timelinePlaying = false;
+        const timelineBtn = document.getElementById('timelineAudioBtn');
+        const timelineEq = document.getElementById('timelineEq');
+        if (timelineBtn) {
+            timelineBtn.innerHTML = '<i class="fas fa-play"></i>';
+            timelineBtn.classList.remove('playing');
+        }
+        if (timelineEq) timelineEq.classList.remove('active');
+    }
+
     if (newsPlaying) {
         newsAudio.pause();
         newsPlaying = false;
@@ -299,6 +314,58 @@ function toggleNewsAudio() {
         newsAudio.currentTime = 0;
         newsAudio.play().then(() => {
             newsPlaying = true;
+            btn.innerHTML = '<i class="fas fa-pause"></i>';
+            btn.classList.add('playing');
+            eq.classList.add('active');
+        }).catch(() => {});
+    }
+}
+
+// ===================== TIMELINE AUDIO (3.mp3) =====================
+function toggleTimelineAudio() {
+    const btn = document.getElementById('timelineAudioBtn');
+    const eq = document.getElementById('timelineEq');
+
+    if (!timelineAudio) {
+        timelineAudio = new Audio('3.mp3');
+        timelineAudio.volume = 0.8;
+        timelineAudio.addEventListener('ended', () => {
+            timelinePlaying = false;
+            btn.innerHTML = '<i class="fas fa-play"></i>';
+            btn.classList.remove('playing');
+            eq.classList.remove('active');
+            // Restore bg music volume
+            fadeBgVolumeTo(0.35, 2000);
+        });
+    }
+
+    // Stop news audio if it happens to be playing
+    if (newsPlaying && newsAudio) {
+        newsAudio.pause();
+        newsPlaying = false;
+        const newsBtn = document.getElementById('newsAudioBtn');
+        const newsEq = document.getElementById('newsEq');
+        if (newsBtn) {
+            newsBtn.innerHTML = '<i class="fas fa-play"></i>';
+            newsBtn.classList.remove('playing');
+        }
+        if (newsEq) newsEq.classList.remove('active');
+    }
+
+    if (timelinePlaying) {
+        timelineAudio.pause();
+        timelinePlaying = false;
+        btn.innerHTML = '<i class="fas fa-play"></i>';
+        btn.classList.remove('playing');
+        eq.classList.remove('active');
+        // Restore bg music volume
+        fadeBgVolumeTo(0.35, 2000);
+    } else {
+        // Duck bg music volume down to let voice be heard
+        fadeBgVolumeTo(0.08, 1500);
+        timelineAudio.currentTime = 0;
+        timelineAudio.play().then(() => {
+            timelinePlaying = true;
             btn.innerHTML = '<i class="fas fa-pause"></i>';
             btn.classList.add('playing');
             eq.classList.add('active');
@@ -365,6 +432,19 @@ function openSection(sectionName) {
 }
 
 function closeSection() {
+    // Stop timeline audio if playing
+    if (timelinePlaying && timelineAudio) {
+        timelineAudio.pause();
+        timelinePlaying = false;
+        const btn = document.getElementById('timelineAudioBtn');
+        const eq = document.getElementById('timelineEq');
+        if (btn) {
+            btn.innerHTML = '<i class="fas fa-play"></i>';
+            btn.classList.remove('playing');
+        }
+        if (eq) eq.classList.remove('active');
+    }
+
     // Stop news audio if playing
     if (newsPlaying && newsAudio) {
         newsAudio.pause();
