@@ -206,7 +206,7 @@ function startBgMusic() {
     if (!bgMusic) {
         bgMusic = new Audio('1.mp3');
         bgMusic.loop = true;
-        bgMusic.volume = 0.35;
+        bgMusic.volume = 1;
     }
     bgMusic.play().then(() => {
         musicPlaying = true;
